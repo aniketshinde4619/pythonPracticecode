@@ -1,0 +1,41 @@
+import string  
+#importing random for selecting random variable
+import random 
+symbols=[]         
+#storing all ascii characters
+symbols=list(string.ascii_letters)     
+card1=[0]*5
+card2=[0]*5
+pos1=random.randint(0,4)
+pos2=random.randint(0,4)
+print(pos1,pos2)
+sameSymbol=random.choice(symbols)
+#removing same symbol for avoiding repeatition of symbol
+symbols.remove(sameSymbol)
+if(pos1==pos2):
+    card1[pos1]=sameSymbol
+    card2[pos2]=sameSymbol
+else:
+    card1[pos1]=sameSymbol
+    card2[pos2]=sameSymbol
+    card1[pos2]=random.choice(symbols)
+    symbols.remove(card1[pos2])
+    card2[pos1]=random.choice(symbols)
+    symbols.remove(card2[pos1])
+    
+int(i)=0 
+#filling remaining position of cards
+while(i<5):
+    if(i != pos1 and i != pos2):
+        card1[i]=random.choice(symbols)
+        symbols.remove(card1[i])
+        card2[i]=random.choice(symbols)
+        symbols.remove(card2[i])
+print(card1)
+print(card2)
+print("what is common symbol")
+ch=input("")
+if(ch==sameSymbol):
+    print("Right")
+else:
+    print("Wrong") 
